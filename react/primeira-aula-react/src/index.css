@@ -1,0 +1,11 @@
+:root{
+  --bg: #f3f3f3;
+  --text: #7494ec;
+  ---primary: #0e0ba8;
+}
+
+body{
+  background: var(--bg);
+  color: var(--text);
+}
+
