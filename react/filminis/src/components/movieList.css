@@ -1,0 +1,61 @@
+
+.status{
+    text-align: center;
+    font-size: 18px;
+}
+
+.status.error{
+    color: var(--error);
+    font-size: 24px;
+
+}
+
+.filme-section h2{
+    font-size: 32px;
+    margin-bottom: 20px;
+
+}
+
+.filme-grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 32px;
+}
+
+.filme-card{
+    background: var(--card);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px;
+}
+
+.filme-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 12px 15px #8052bb;
+    
+}
+
+.filme-card img{
+    width: 100%;
+    object-fit: cover;
+    border-radius:20px 20px 0;
+}
+
+.filme-infor{
+    padding: 18px;
+}
+
+.filme-info h3{
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--text)
+}
+
+.filme-info p{
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+

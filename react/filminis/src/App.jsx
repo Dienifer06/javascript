@@ -1,18 +1,26 @@
 import MoveList from "./components/MovieList";
 import "./App.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Movie from "./components/Movie";
+
 
 function App() {
   return(
+  <BrowserRouter>
   <div className="container">
       <header>
-        <h1>filminis</h1>
-        <p>seu catalago</p>
+        <h1>Movie Storm</h1>
+        <p>Seu catalágo</p>
       </header>
-
-      <MoveList />
       
-  </div>
-  )
+        <Routes>
+          <Route path="/" element={<MoveList />} />
+          <Route path="/filme" element={<Movie />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+  
 
 }
 

@@ -4,9 +4,10 @@
   --primary: #ffffff;
   --secondary: #420a34;
   --card: #0d6161;
-  --text: #b631c2;
+  --text: #f7f7f7;
   --border: 2px solid #3878ac;
-  
+  --shadow: 0 4px 5px #ffffff; 
+  --error: #810a0a;
 
   --font-main: "Playfair Display", serif;
 }

@@ -19,3 +19,19 @@ export async function bsucarFilmes(){
 }
 
 // fatch = resposta de algo 
+
+export async function filmeID(id){
+    try {
+        const resposta = await fetch(`${API_URL}/filme?id=${id}`)
+        
+        if (!resposta.ok){
+            throw new Error("erro ao buscar filme")
+        }
+
+        const dados = await resposta.json();
+        return dados 
+    } catch (erro){
+        console.error("Error ns API")
+        return[];
+    }
+}
