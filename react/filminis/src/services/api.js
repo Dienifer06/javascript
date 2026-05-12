@@ -35,3 +35,25 @@ export async function filmeID(id){
         return[];
     }
 }
+
+
+export async function loginUsuario(email,senha){
+    try {
+        const resposta = await fetch(`${API_URL}/send_loguinho`,{
+            method: "POST",
+            headers:{"Content-Type": "application/x-www-form-urlencoded"},
+            body: new URLSearchParams({ email, password: senha }).toString(),
+        })
+        if (!resposta.ok){
+            throw new Error('Erro login')
+        }
+
+        const dados = await resposta.json()
+        return dados 
+
+    }catch(erro){
+        console.error('Erro de login:', erro);
+        return null 
+    }
+
+}
