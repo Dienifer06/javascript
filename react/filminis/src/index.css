@@ -1,41 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 :root {
-  --bg: #072741;
-  --primary: #ffffff;
-  --secondary: #420a34;
-  --card: #0d6161;
-  --text: #f7f7f7;
-  --border: 2px solid #3878ac;
-  --shadow: 0 4px 5px #ffffff; 
+  /* 1. Cores Temáticas baseadas no seu desenho */
+  --bg: #fdfad3;        /* Amarelo clarinho de fundo do site */
+  --primary: #58241c;   /* Marrom escuro para o Header e textos principais */
+  --secondary: #ff4d4d; /* Vermelho vibrante para os corações */
+  --card: #ffffd1;      /* Amarelo ainda mais claro de dentro dos cards */
+  --text: #58241c;      /* Texto padrão em marrom escuro */
+  --border: 4px solid #fde247; /* Borda amarela grossa para os cards */
+  --shadow: 0 4px 8px rgba(88, 36, 28, 0.15); /* Sombra marrom bem suave */
   --error: #810a0a;
 
+  /* 2. Tipografia */
   --font-main: "Playfair Display", serif;
 }
 
-
-
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
-  background: var(--bg);
+body {
+  /* Altere para o caminho correto onde salvou a imagem (ex: ./assets/image_4158d1.png) */
+  background-image: url('./assets/imagem_body.jpg'); 
+  
+  /* Cor rosa idêntica ao fundo da imagem para cobrir as laterais nas telas largas */
+  background-color: #ebd1d6; 
+  
+  /* Mantém a proporção perfeita do desenho do casal sem distorcer */
+  background-size: contain;
+  
+  /* Centraliza o casal perfeitamente no meio da tela */
+  background-position: center;
+  
+  /* Impede que o casal fique se repetindo em mosaico para baixo */
+  background-repeat: no-repeat;
+  
+  /* Deixa o fundo fixo enquanto você rola a lista de filmes por cima dele */
+  background-attachment: fixed;
+  
   min-height: 100vh;
-  color:var(--text)
+  color: var(--text);
+  font-family: var(--font-main); /* Aplica a Playfair Display no site inteiro */
+}
+/* 3. Correção das Fontes dos Títulos */
+h1, h2, h3 {
+  /* O CSS não aceita classes aninhadas puras desse jeito sem pré-processador (SASS). 
+     Ajustei para aplicar a fonte diretamente neles */
+  font-family: var(--font-main); 
+  font-weight: 700;
+  color: var(--primary);
 }
 
-h1,h2,h3{
-  .boldonse-regular {
-  font-family: "Boldonse", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-}
-
+/* Caso você queira usar uma classe específica para estilizar textos com a Playfair */
 .playfair-display {
   font-family: var(--font-main);
   font-optical-sizing: auto;

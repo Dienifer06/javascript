@@ -8,6 +8,8 @@ export default function Login({setRole, setToken}){
     const [senha, setSenha] = useState("")
     const [error, setError] = useState("")
 
+    const navigate = useNavigate()
+
     function decodeJWT(token){
         const base64 = token.split('.')[1]
         return JSON.parse(atob(base64.replace(/-/g, "+").replace(/_/g,"/"))) 
@@ -21,14 +23,14 @@ export default function Login({setRole, setToken}){
         if(data.access_token){
             try{
                 setToken(data.access_token)
-                localStorage.setItem("acess_token", data.access_token)
+                localStorage.setItem("access_token", data.access_token)
 
                 
-                const payload64 = decodeJWT(data.access_token)
+                const payload = decodeJWT(data.access_token)
                 setRole(payload.role)
                 localStorage.setItem("user_role", payload.role)
                 setError("")
-                useNavigate("/")
+                navigate("/")
 
 
             }catch(err){

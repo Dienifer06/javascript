@@ -3,13 +3,32 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import "./App.css"
 import Movie from "./components/Movie";
 import Login from "./components/login/login"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function App() {
 
   const [token, setToken] = useState(null)
   const [role, setRole] = useState(null)
+
+  useEffect(() =>{
+    const tokenSalvo = localStorage.getItem("access_token")
+    const roleSalvo = localStorage.getItem("user_role")
+
+    if (tokenSalvo && roleSalvo){
+      console.log("entremo")
+      setToken(tokenSalvo)
+      setRole(roleSalvo)
+    }
+  }, [])
+
+  const handleLogout = () => {
+    localStorage.clear()
+    setToken(null)
+    setRole(null)
+  }
+
+
 
   return (
     <BrowserRouter>
@@ -22,14 +41,32 @@ function App() {
           <Link to="/login">
             <p>Login</p>
           </Link>
+          <button onClick={handleLogout}>logout</button>
         </header>
+       
+
+
         <Routes>
-          <Route path="/" element={<MovieList />} />
-          <Route path="/filme" element={<Movie />} />
-          <Route path="/login" element={<Login setRole={setRole} setToken={setToken} />} />
+
+          {token ? (
+            <>
+            <Route path="/" element={<MovieList />} />
+            <Route path="/filme" element={<Movie />} />
+            <Route path="/login" element={<Login setRole={setRole} setToken={setToken} />} /> 
+            </>
+          ) : (
+            <>
+            <Route path="/" element={<MovieList />} />
+            <Route path="/login" element={<Login setRole={setRole} setToken={setToken} />} />
+            </>
+          )}
         </Routes>
 
+
+
       </div>
+
+
     </BrowserRouter>
 
   )

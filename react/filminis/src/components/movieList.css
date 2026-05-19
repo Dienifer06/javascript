@@ -15,47 +15,62 @@
     margin-bottom: 20px;
 
 }
-
-.filme-grid{
+.filme-grid {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
+    padding: 20px;
 }
 
-.filme-card{
-    background: var(--card);
+/* 2. O Card do Filme (Fundo Amarelo Claro e Borda Marcante) */
+.filme-card {
+    background-color: #ffffd1; /* Amarelo bem clarinho de dentro do card */
+    border: 4px solid #fde247;  /* Borda amarela grossa e viva igual ao desenho */
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transform: translateY(0);
+    padding: 12px;             /* Espaçamento interno para desgrudar a imagem da borda */
+    box-shadow: 0 4px 8px rgba(88, 36, 28, 0.15); /* Sombra suave em tom marrom */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* Centraliza tudo dentro do card */
 }
 
-.filme-card:hover{
+/* Efeito ao passar o mouse */
+.filme-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 15px #8052bb;
-    
+    box-shadow: 0 12px 20px rgba(88, 36, 28, 0.3); /* Sombra marrom mais forte */
 }
 
-.filme-card img{
+/* 3. A Imagem do Filme (Arredondada) */
+.filme-card img {
     width: 100%;
+    height: 320px;             /* Altura padrão para os posters não ficarem desalinhados */
     object-fit: cover;
-    border-radius:20px 20px 0;
+    border-radius: 15px;       /* Imagem com bordinha arredondada dentro do card */
+    border: 2px dashed #ff4d4d; /* Opcional: Uma bordinha pontilhada vermelha simula os corações em volta! */
 }
 
-.filme-infor{
-    padding: 18px;
+/* 4. Textos de Informação do Filme (Alinhados ao centro e em Marrom) */
+.filme-infor, .filme-info {
+    padding: 12px 5px 5px 5px;
+    text-align: center;        /* Centraliza os títulos e anos igual ao rascunho */
+    width: 100%;
 }
 
-.filme-info h3{
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: var(--text)
-}
-
-.filme-info p{
+/* Título do Filme */
+.filme-info h3, .filme-card h3 {
+    font-size: 18px;
+    margin: 8px 0 4px 0;
+    color: #58241c;            /* Texto em marrom escuro */
     font-weight: bold;
-    margin-bottom: 8px;
+    text-decoration: underline; /* Sublinhado charmoso nos links dos títulos */
 }
 
+/* Ano do Filme */
+.filme-info p, .filme-card p {
+    font-size: 14px;
+    color: #58241c;            /* Ano também em marrom */
+    margin: 0;
+    font-weight: normal;
+}

@@ -39,7 +39,7 @@ export async function filmeID(id){
 
 export async function loginUsuario(email,senha){
     try {
-        const resposta = await fetch(`${API_URL}/send_loguinho`,{
+        const resposta = await fetch(`${API_URL}/send_loginho`,{
             method: "POST",
             headers:{"Content-Type": "application/x-www-form-urlencoded"},
             body: new URLSearchParams({ email, password: senha }).toString(),

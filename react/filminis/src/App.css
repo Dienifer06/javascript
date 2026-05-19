@@ -1,23 +1,59 @@
-.container{
+/* Container que protege o conteúdo das laterais */
+.container {
     max-width: 1140px;
-    margin: auto;
-    padding: 32px;
+    margin: 0 auto;
+    padding: 0 32px 32px 32px; /* Removemos o padding do topo para o header colar lá */
 }
 
-header{
-    background: var(--bg) ;
-    border-radius: 20px;
-    margin-bottom: 48px;
+/* Header Marrom Escuro (agora sem bordas arredondadas para colar nas pontas) */
+header {
+    background: #581908; 
+    margin-bottom: 0; /* Colamos com a faixa de corações abaixo */
     text-align: center;
-    box-shadow: var(--shadow);
+    padding: 40px 20px; /* Um espaçamento interno generoso para dar destaque */
+    box-shadow: 0 4px 10px rgba(88, 25, 8, 0.2);
+    width: 100vw; /* Faz o marrom ir de ponta a ponta na tela */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
-header h1{
+/* O título Cinelist em Branco para dar o contraste perfeito */
+header h1, header a {
+    color: #ffffff;
     font-size: 48px;
     margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
 }
 
+/* O subtexto no amarelo clarinho do fundo */
 header p {
     font-size: 18px;
+    color: var(--bg); /* Usa o amarelo clarinho que definimos no :root */
+    margin-top: 8px;
+    opacity: 0.9;
+}
+
+/* A Faixa de Corações exclusiva do seu desenho */
+/* Lembre de adicionar <div className="faixa-coracoes">❤️❤️❤️...</div> no seu App.jsx logo abaixo do header! */
+.faixa-coracoes {
+    background: #ffffff; /* Fundo branco faz o coração vermelho saltar aos olhos */
+    text-align: center;
+    padding: 8px 0;
+    font-size: 20px;
+    letter-spacing: 4px;
+    border-bottom: 4px solid #581908; /* Linha marrom marcante embaixo dos corações */
+    margin-bottom: 48px; /* O espaço que antes estava no header, agora fica aqui */
     
+    /* Faz a faixa de corações também ir de ponta a ponta na tela */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
